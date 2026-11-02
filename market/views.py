@@ -8,6 +8,7 @@ from .serializers import (
     CategorySerializer,
     ProductSerializer,
     ReviewSerializer,
+    ProductWithReviewsSerializer
 )
 
 
@@ -39,3 +40,7 @@ class ReviewListView(generics.ListAPIView):
 class ReviewDetailView(generics.RetrieveAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+
+class ProductWithReviewsView(generics.RetrieveAPIView):
+    queryset = Product.objects.prefetch_related('reviews').all()
+    serializer_class = ProductWithReviewsSerializer
