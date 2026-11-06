@@ -4,7 +4,7 @@ from django.db.models import Avg
 from .models import Category, Product, Review
 
 
-# CATEGORY SERIALIZER
+
 
 class CategorySerializer(serializers.ModelSerializer):
 
